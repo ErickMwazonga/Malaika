@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'malaika',
+    'operations',
+    'staff',
+    'finance',
+    'reception',
 ]
 
 MIDDLEWARE = [

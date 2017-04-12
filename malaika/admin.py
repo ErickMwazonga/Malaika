@@ -4,7 +4,11 @@ from __future__ import unicode_literals
 from django.contrib import admin
 
 # app import
-from .models import Patient, Doctor, Diagnose, Room, In_patient, Out_patient, Treatment, Billing
+from malaika.models import Room
+from reception.models import Patient, In_patient, Out_patient
+from staff.models import Doctor
+from operations.models import Diagnose, Treatment
+from finance.models import Billing
 
 # Register your models here.
 admin.site.register(Patient)
