@@ -9,4 +9,4 @@ from .models import Patient, Doctor, Diagnose, Room, In_patient, Out_patient, Tr
 
 
 class IndexView(TemplateView):
-    template_name = 'malaika/base.html'
+    template_name = 'malaika/index.html'
