@@ -2,12 +2,12 @@ from django.conf import settings
 
 def _validate_hospital_meta_data(**kwargs):
     hospital_data = {}
-    for k,v in kwargs.items():
-        assert isinstance(v str), 'Each of the hospital settings must be of type str. You have given {} of {}'.fomrat(v, str(v))
+    for k, v in kwargs.items():
+        assert isinstance(v, str), 'Each of the hospital settings must be of type str. You have given {} of {}'.fomrat(v, type(v))
         if v.strip():
-            hospital_data[k]=v
+            hospital_data[k] = v
         else:
-            hospital_data[k]='SET THE {}'.format(k).upper()
+            hospital_data[k] = 'SET THE {}'.format(k).upper()
         return hospital_data
 
 def hospital(request):

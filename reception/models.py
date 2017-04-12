@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 from django.db import models
 from malaika.models import PersonDetails, Room
 from staff.models import Doctor
-from operations.models import Diagnose
+from malaika.models import Diagnose
 
 from django.utils import timezone
 
@@ -16,6 +16,7 @@ class Patient(PersonDetails):
 
     def __str__(self):
         return '{}-{}'.format(self.first_name,self.last_name)
+
 
 class In_patient(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)

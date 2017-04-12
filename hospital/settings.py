@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'staff',
     'finance',
     'reception',
+
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -126,6 +128,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 # project meta data
-HOSPITAL_NAME = 'MALAIKA HOSPITAL'
+HOSPITAL_NAME = "MALAIKA HOSPITAL"
 HOSPITAL_SLOGAN = "We don't treat, we HEAL"

@@ -5,9 +5,9 @@ from django.contrib import admin
 
 # app import
 from malaika.models import Room
-from reception.models import Patient, In_patient, Out_patient
+from reception.models import Patient, Diagnose, In_patient, Out_patient
 from staff.models import Doctor
-from operations.models import Diagnose, Treatment
+from operations.models import Treatment
 from finance.models import Billing
 
 # Register your models here.

@@ -1,8 +1,8 @@
 from django.conf.urls import url
 from django.contrib import admin
-from .views import IndexView
+from malaika.views import IndexView
 
-app_name = 'hospital'
+app_name = 'malaika'
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

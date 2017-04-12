@@ -34,3 +34,12 @@ class Room(models.Model):
 
     def __str(self):
         return 'Room {}'.format(self.room_number)
+
+
+class Diagnose(models.Model):
+    name = models.CharField(max_length=200)
+    code = models.IntegerField(default=0, unique=True)
+    description = models.TextField()
+
+    def __str__(self):
+        return '{}-{}'.format(self.code, self.name)
