@@ -1,0 +1,21 @@
+/*Html{
+    height:100%;
+}*/
+/*body {
+    background: url("images/next.jpg") ;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: 100%;
+    background-size: cover;
+}*/
+
+.navbar-brand {
+    font-family: 'Satisfy';
+}
+.grandLoginContainer{
+    /*margin-top: 5%;*/
+}
+.loginContainer{
+    margin-top: 5%;
+    vertical-align: middle;
+}
