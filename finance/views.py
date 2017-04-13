@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-from django.views.generic import CreateView
+from django.shortcuts import render, reverse
+from django.views.generic import CreateView, ListView
 from finance.models import Billing
 from finance.forms import BillingForm
 
@@ -13,4 +13,14 @@ class BillingCreateView(CreateView):
     form_class = BillingForm
 
     def get_success_url(self):
-        return render('')
+        return reverse('malaika:index')
+
+
+# Create listviews for the finance app
+class BillingListView(ListView):
+    context_object_name = 'billing_list'
+    model = Billing
+    template_name = 'TEMPLATE_NAME'
+
+    def get_queryset(self):
+        return reverse('malaika:index')

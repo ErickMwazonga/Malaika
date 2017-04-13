@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 
 # project imports
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, ListView
 from .models import Diagnose, Room
 from .forms import DiagnoseForm, RoomForm
 
@@ -20,7 +20,7 @@ class DiagnoseCreateView(CreateView):
     form_class = DiagnoseForm
 
     def get_success_url(self):
-        return reverse('')
+        return reverse('malaika:index')
 
 
 class RoomCreateView(CreateView):
@@ -30,3 +30,21 @@ class RoomCreateView(CreateView):
 
     def get_success_url(self):
         return reverse('')
+
+# cbv listviews for malaika app
+class DiagnoseListView(ListView):
+    context_object_name = 'diagnose_list'
+    model = Diagnose
+    template_name = 'TEMPLATE_NAME'
+
+    def get_queryset(self):
+        return Diagnose.objects.all()
+
+
+class RoomListView(ListView):
+    context_object_name = 'rooms_list'
+    model = Room
+    template_name = 'TEMPLATE_NAME'
+
+    def get_queryset(self):
+        return Room.objects.all()

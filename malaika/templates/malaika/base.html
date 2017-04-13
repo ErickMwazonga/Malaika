@@ -42,12 +42,12 @@
                     <li><a href="{% url 'reception:in_patient' %}">In_patient</a></li>
                     <li><a href="{% url 'reception:out_patient' %}">Out-patient</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Room</a></li>
-                    <li><a href="#">Diagnose</a></li>
+                    <li><a href="{% url 'malaika:room' %}">Room</a></li>
+                    <li><a href="{% url 'malaika:diagnose' %}">Diagnose</a></li>
                     <li><a href="{% url 'staff:doctor' %}">Doctor</a></li>
                     <li class="divider"></li>
                     <li><a href="{% url 'operations:treatment' %}">Treatment</a></li>
-                    <li><a href="#">Billing</a></li>
+                    <li><a href="{% url 'finance:billing' %}">Billing</a></li>
                   </ul>
                 </li>
               </ul>
