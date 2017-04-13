@@ -7,6 +7,7 @@ from django.shortcuts import render, reverse
 from django.views.generic import TemplateView, CreateView, ListView
 from .models import Diagnose, Room
 from .forms import DiagnoseForm, RoomForm
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 class IndexView(TemplateView):
@@ -14,19 +15,21 @@ class IndexView(TemplateView):
 
 
 # creating objects of the models using CBV CreateView
-class DiagnoseCreateView(CreateView):
+class DiagnoseCreateView(SuccessMessageMixin, CreateView):
     model = Diagnose
     template_name = 'malaika/diagnose_form.html'
     form_class = DiagnoseForm
+    success_message = 'Diagnose entered successfully'
 
     def get_success_url(self):
         return reverse('malaika:index')
 
 
-class RoomCreateView(CreateView):
+class RoomCreateView(SuccessMessageMixin, CreateView):
     model = Room
     template_name = 'malaika/room_form.html'
     form_class = RoomForm
+    success_message = 'Room entered successfully'
 
     def get_success_url(self):
         return reverse('')

@@ -4,16 +4,19 @@
 
 {% block content %}
     <div class="container">
-        <div class="container jumbotron">
-            <div class="text-center">
-                <h2>{{ hospital_slogan|upper }}</h2> <br>
-                <strong>{{ hospital_slogan }} </strong><br>
-                It to create a challenging learning environment that
-                encourages high expectations for success through development-appropriate instruction
-                that allows for individual differences and learning styles. Our school promotes a safe,
-                orderly, caring, and supportive environment. Each student’s self-esteem is fostered by
-                positive relationships with students and staff. We strive to have our parents, teachers, and community members actively involved on our students’ learning.
-            </div>
-        </div>
+      <div class="container text-center">
+        {% include "malaika/includes/success_message.html" %}
+      </div>
+      <div class="container jumbotron">
+          <div class="text-center">
+              <h2>{{ hospital_slogan|upper }}</h2> <br>
+              <strong>{{ hospital_slogan }} </strong><br>
+              It to create a challenging learning environment that
+              encourages high expectations for success through development-appropriate instruction
+              that allows for individual differences and learning styles. Our school promotes a safe,
+              orderly, caring, and supportive environment. Each student’s self-esteem is fostered by
+              positive relationships with students and staff. We strive to have our parents, teachers, and community members actively involved on our students’ learning.
+          </div>
+      </div>
     </div>
 {% endblock content %}
