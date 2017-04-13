@@ -1,6 +1,9 @@
-from django.forms import forms
+from django import forms
 from malaika.models import Diagnose, Room
 
+# crispy_forms imports
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import  Submit
 
 class RoomForm(forms.ModelForm):
     # TODO: Define other fields here
@@ -16,6 +19,10 @@ class RoomForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(RoomForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_class = 'form-horizontal'
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Save'))
 
     def clean(self):
         cleaned_data = super(RoomForm, self).clean()
@@ -31,6 +38,10 @@ class DiagnoseForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(DiagnoseForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_class = 'form-horizontal'
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Save'))
 
     def clean(self):
         cleaned_data = super(DiagnoseForm, self).clean()
