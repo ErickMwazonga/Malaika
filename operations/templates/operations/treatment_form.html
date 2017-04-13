@@ -1,0 +1,17 @@
+{% extends 'malaika/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Treatment{{ block.super }}{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3 jumbotron">
+      <h3 class="text-center"><strong>Enter Treatment Details</strong></h3>
+      <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% crispy form %}
+      </form>
+    </div>
+  </div>
+{% endblock content %}

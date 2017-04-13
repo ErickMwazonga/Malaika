@@ -15,6 +15,9 @@ class DoctorForm(forms.ModelForm):
         labels = {
             'dob': 'Date of Birth'
         }
+        widgets = {
+            'dob': forms.SelectDateWidget(years=[str(val) for val in range(1998, 2017)]),
+        }
 
     def __init__(self, *args, **kwargs):
         super(DoctorForm, self).__init__(*args, **kwargs)
@@ -30,7 +33,7 @@ class DoctorForm(forms.ModelForm):
             MultiWidgetField(
                 'dob',
                 attrs=(
-                    {'style': 'width: 30%; display: inline-block;'}
+                    {'style': 'width: 32.8%; display: inline-block;'}
                 )
             ),
             'age',

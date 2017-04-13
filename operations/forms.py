@@ -1,4 +1,4 @@
-from django.forms import forms
+from django import forms
 from operations.models import Treatment
 
 # crispy_forms imports
@@ -16,6 +16,10 @@ class TreatmentForm(forms.ModelForm):
             'doctors_comments': "Doctor's Comments"
             }
 
+        widgets = {
+            'date': forms.SelectDateWidget(years=[str(val) for val in range(1998, 2017)]),
+            }
+
     def __init__(self, *args, **kwargs):
         super(TreatmentForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -26,11 +30,10 @@ class TreatmentForm(forms.ModelForm):
         self.helper.layout = Layout(
             'patient',
             'doctor',
-            'date',
             MultiWidgetField(
                 'date',
                 attrs=(
-                    {'style': 'width: 30%; display: inline-block;'}
+                    {'style': 'width: 32.8%; display: inline-block;'}
                 )
             ),
             'symptoms',

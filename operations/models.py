@@ -13,7 +13,7 @@ class Treatment(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=None)
     date = models.DateField(default=timezone.now().date())
-    symptoms = models.TextField
+    symptoms = models.TextField()
     diagnosis = models.ForeignKey(Diagnose, on_delete=None)
     doctors_comments = models.TextField()
 
