@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.contrib import admin
-from reception.views import PatientCreateView, In_patientCreateView, Out_patientCreateView, PatientListView
+from reception.views import PatientCreateView, In_patientCreateView, Out_patientCreateView, PatientListView, In_patientListView
 
 app_name = 'reception'
 

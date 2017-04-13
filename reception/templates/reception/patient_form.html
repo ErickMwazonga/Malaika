@@ -8,14 +8,6 @@
   <div class="container">
     <div class="col-md-6 col-md-offset-3 jumbotron">
       <h3 class="text-center"><strong>Enter Patient Details</strong></h3>
-      <p>
-        <a href="{% url 'reception:patients' %}">
-          <button type="button" class="btn btn-primary">
-            <span class="glyphicon glyphicon-th"></span>
-            View Patients
-          </button>
-        </a>
-      </p>
       <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% crispy form %}

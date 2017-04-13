@@ -1,0 +1,161 @@
+{% extends 'malaika/base.html' %}
+
+{% block title %} Patients {{ block.super }}{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <div class="container jumbotron">
+
+      <div id="exTab3" class="container">
+          <ul  class="nav nav-pills">
+      			<li class="active"><a  href="#1b" data-toggle="tab">Patients</a></li>
+      			<li><a href="#2b" data-toggle="tab">In-Patients</a></li>
+      			<li><a href="#3b" data-toggle="tab">Out-Patients</a></li>
+      		</ul>
+
+      			<div class="tab-content clearfix">
+      			  <div class="tab-pane active" id="1b">
+                <br/><td colspan="7" class="text-center bg-warning">No book</td>
+                  <p>
+                    <a href="{% url 'reception:patient' %}">
+                      <button type="button" class="btn btn-primary js-create-patient">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        New Patient
+                      </button>
+                    </a>
+                  </p>
+                  {% if patient_list %}
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                          <th>#</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Gender</th>
+                          <th>Date of Birth</th>
+                          <th>Age</th>
+                          <th>Country</th>
+                          <th>City</th>
+                          <th>Address</th>
+                          <th>Contact Number</th>
+                          <th>Next of Kin</th>
+                      </tr>
+                    </thead>
+                  {% endif %}
+
+                    <tbody>
+                      {% for patient in patient_list%}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ patient.first_name }}</td>
+                            <td>{{ patient.last_name }}</td>
+                            <td>{{ patient.gender }}</td>
+                            <td>{{ patient.dob }}</td>
+                            <td>{{ patient.age }}</td>
+                            <td>{{ patient.country }}</td>
+                            <td>{{ patient.city }}</td>
+                            <td>{{ patient.address }}</td>
+                            <td>{{ patient.contact_no }}</td>
+                            <td>{{ patient.next_of_kin }}</td>
+                        </tr>
+                        {% empty %}
+                          <tr>
+                            <td colspan="11" class="text-center bg-warning">No Patient for display. We're terribly sorry.</td>
+                          </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+
+      				</div>
+
+      				<div class="tab-pane" id="2b">
+                <br/>
+                  <p>
+                    <a href="{% url 'reception:in_patient' %}">
+                      <button type="button" class="btn btn-primary js-create-patient">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        New In-Patient
+                      </button>
+                    </a>
+                  </p>
+                  {% if in_patient_list %}
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                          <th>#</th>
+                          <th>Patient</th>
+                          <th>Date of Admission</th>
+                          <th>Date of Discharge</th>
+                          <th>Diagnosis</th>
+                          <th>Doctor</th>
+                          <th>Room</th>
+                      </tr>
+                    </thead>
+                  {% endif %}
+                    <tbody>
+                      {% for in_patient in in_patient_list%}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ in_patient.patient }}</td>
+                            <td>{{ in_patient.date_of_adm }}</td>
+                            <td>{{ in_patient.date_of_discarge }}</td>
+                            <td>{{ in_patient.diagnosis }}</td>
+                            <td>{{ in_patient.doctor }}</td>
+                            <td>{{ in_patient.room }}</td>
+                        </tr>
+                      {% empty %}
+                        <tr>
+                          <td colspan="7" class="text-center bg-warning">No In-Patient for display. We're terribly sorry.</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+      				</div>
+
+              <div class="tab-pane" id="3b">
+                <br/>
+                  <p>
+                    <a href="{% url 'reception:out_patient' %}">
+                      <button type="button" class="btn btn-primary js-create-patient">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        New Out-Patient
+                      </button>
+                    </a>
+                  </p>
+                  {% if in_patient_list %}
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                          <th>#</th>
+                          <th>Patient</th>
+                          <th>Date</th>
+                          <th>Diagnosis</th>
+                          <th>Doctor</th>
+                      </tr>
+                    </thead><td colspan="7" class="text-center bg-warning">No book</td>
+                  {% endif %}
+                    <tbody>
+                      {% for out_patient in out_patient_list%}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ out_patient.patient }}</td>
+                            <td>{{ out_patient.date }}</td>
+                            <td>{{ out_patient.diagnosis }}</td>
+                            <td>{{ out_patient.doctor }}</td>
+                        </tr>
+                      {% empty %}
+                        <tr>
+                          <td colspan="5" class="text-center bg-warning">No In-Patient for display. We're terribly sorry.</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+      				</div>
+
+      			</div>
+        </div>
+
+    </div>
+  </div>
+
+{% endblock content %}

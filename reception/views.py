@@ -35,7 +35,7 @@ class Out_patientCreateView(CreateView):
 class PatientListView(ListView):
     context_object_name = 'patient_list'
     model = Patient
-    template_name = 'reception/patient_list.html'
+    template_name = 'reception/reception_list.html'
 
     def get_queryset(self):
         return Patient.objects.all()
@@ -44,7 +44,7 @@ class PatientListView(ListView):
 class In_patientListView(ListView):
     context_object_name = 'in_patient_list'
     model = In_patient
-    template_name = 'reception/in_patient_list.html'
+    template_name = 'reception/reception_list.html'
 
     def get_queryset(self):
         return In_patient.objects.all()
@@ -53,7 +53,7 @@ class In_patientListView(ListView):
 class Out_patientListView(ListView):
     context_object_name = 'out_patient_list'
     model = Out_patient
-    template_name = 'reception/out_patient_list.html'
+    template_name = 'reception/reception_list.html'
 
     def get_queryset(self):
         return Out_patient.objects.all()
