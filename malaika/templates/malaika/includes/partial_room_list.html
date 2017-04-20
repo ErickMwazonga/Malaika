@@ -1,0 +1,23 @@
+{% for room in rooms %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ room.room_number }}</td>
+    <td>{{ room.room_type }}</td>
+    <td>
+      <button type="button"
+              class="btn btn-warning btn-sm js-update-room"
+              data-url="{% url 'malaika:room_update' pk=room.id %}">
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+      </button>
+      <button type="button"
+              class="btn btn-danger btn-sm js-delete-room"
+              data-url="{% url 'malaika:room_delete' pk=room.id %}">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      </button>
+    </td>
+  </tr>
+{% empty %}
+  <tr>
+    <td colspan="3" class="text-center bg-warning">No room</td>
+  </tr>
+{% endfor %}

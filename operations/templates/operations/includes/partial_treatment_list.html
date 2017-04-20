@@ -1,0 +1,27 @@
+{% for treatment in treatments %}
+  <tr>
+    <th scope="row">{{ forloop.counter }}</th>
+    <td>{{ treatment.patient }}</td>
+    <td>{{ treatment.doctor }}</td>
+    <td>{{ treatment.date }}</td>
+    <td>{{ treatment.symptoms }}</td>
+    <td>{{ treatment.diagnosis }}</td>
+    <td>{{ treatment.doctors_comments }}</td>
+    <td>
+      <button type="button"
+              class="btn btn-warning btn-sm js-update-treatment"
+              data-url="{% url 'operations:treatment_update' pk=treatment.id %}">
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+      </button>
+      <button type="button"
+              class="btn btn-danger btn-sm js-delete-treatment"
+              data-url="{% url 'operations:treatment_delete' pk=treatment.id %}">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      </button>
+    </td>
+  </tr>
+{% empty %}
+  <tr>
+    <td colspan="8" class="text-center bg-warning">No treatments</td>
+  </tr>
+{% endfor %}

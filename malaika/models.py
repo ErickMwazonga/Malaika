@@ -32,8 +32,8 @@ class Room(models.Model):
     room_number = models.IntegerField(default=0, unique=True)
     room_type = models.CharField(max_length=200, choices=ROOM_TYPES)
 
-    def __str(self):
-        return 'Room {}'.format(self.room_number)
+    def __str__(self):
+        return '{}-{}'.format(self.room_number, self.room_type)
 
 
 class Diagnose(models.Model):

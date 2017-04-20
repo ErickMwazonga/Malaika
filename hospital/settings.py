@@ -133,3 +133,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 # project meta data
 HOSPITAL_NAME = "MALAIKA HOSPITAL"
 HOSPITAL_SLOGAN = "We don't treat, we HEAL"
+
+# authentication settings
+LOGIN_URL = 'malaika:login'
+
+LOGIN_REDIRECT_URL = 'malaika:index'

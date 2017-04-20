@@ -18,4 +18,4 @@ class Treatment(models.Model):
     doctors_comments = models.TextField()
 
     def __str__(self):
-        return '{}-{}'.format(self.patient, self.doctor, self.diagnosis)
+        return '{}-{}'.format(self.patient, self.diagnosis)

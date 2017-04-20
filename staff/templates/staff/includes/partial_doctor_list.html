@@ -1,0 +1,30 @@
+{% for doctor in doctors %}
+  <tr>
+    <th scope="row">{{ forloop.counter }}</th>
+    <td>{{ doctor.first_name }}</td>
+    <td>{{ doctor.last_name }}</td>
+    <td>{{ doctor.gender }}</td>
+    <td>{{ doctor.dob }}</td>
+    <td>{{ doctor.age }}</td>
+    <td>{{ doctor.country }}</td>
+    <td>{{ doctor.city }}</td>
+    <td>{{ doctor.address }}</td>
+    <td>{{ doctor.specialization }}</td>
+    <td>
+      <button type="button"
+              class="btn btn-warning btn-sm js-update-doctor"
+              data-url="{% url 'staff:doctor_update' pk=doctor.id %}">
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+      </button>
+      <button type="button"
+              class="btn btn-danger btn-sm js-delete-doctor"
+              data-url="{% url 'staff:doctor_delete' pk=doctor.id %}">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      </button>
+    </td>
+  </tr>
+{% empty %}
+  <tr>
+    <td colspan="11" class="text-center bg-warning">No doctors</td>
+  </tr>
+{% endfor %}

@@ -1,0 +1,57 @@
+{% extends 'malaika/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Doctors{{ block.super }}{% endblock title %}
+
+{% block javascript %}
+  <script src="{% static 'staff/js/modal.js' %}"></script>
+  <script src="{% static 'staff/css/style.css' %}"></script>
+{% endblock javascript %}
+
+
+{% block content %}
+  <div class="container">
+    <h1 class="page-header">Doctors</h1>
+
+    <!-- BUTTON TO TRIGGER THE ACTION -->
+    <p>
+      <button type="button"
+              class="btn btn-primary js-create-doctor"
+              data-url="{% url 'staff:doctor_create' %}">
+        <span class="glyphicon glyphicon-plus"></span>
+        New doctor
+      </button>
+    </p>
+
+    <table class="table" id="doctor-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Gender</th>
+          <th>Date of Birth</th>
+          <th>Age</th>
+          <th>Country</th>
+          <th>City</th>
+          <th>Address</th>
+          <th>Specialization</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% include 'staff/includes/partial_doctor_list.html' %}
+      </tbody>
+    </table>
+
+    <!-- THE MODAL WE WILL BE USING -->
+    <div class="modal fade" id="modal-doctor">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

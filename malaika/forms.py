@@ -20,9 +20,10 @@ class RoomForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(RoomForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_class = 'form-horizontal'
-        self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Save'))
+        # self.helper.form_class = 'form-horizontal'
+        # self.helper.form_method = 'post'
+        # self.helper.add_input(Submit('submit', 'Save'))
+        self.helper.form_tag = False
 
     def clean(self):
         cleaned_data = super(RoomForm, self).clean()
@@ -39,9 +40,10 @@ class DiagnoseForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(DiagnoseForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_class = 'form-horizontal'
-        self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Save'))
+        # self.helper.form_class = 'form-horizontal'
+        # self.helper.form_method = 'post'
+        self.helper.form_tag = False
+        # self.helper.add_input(Submit('submit', 'Save'))
 
     def clean(self):
         cleaned_data = super(DiagnoseForm, self).clean()

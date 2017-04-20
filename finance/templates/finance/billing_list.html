@@ -1,0 +1,51 @@
+{% extends 'malaika/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}billings{{ block.super }}{% endblock title %}
+
+{% block javascript %}
+  <script src="{% static 'finance/js/modal.js' %}"></script>
+  <script src="{% static 'finance/css/style.css' %}"></script>
+{% endblock javascript %}
+
+
+{% block content %}
+  <div class="container">
+    <h1 class="page-header">Billings</h1>
+
+    <!-- BUTTON TO TRIGGER THE ACTION -->
+    <p>
+      <button type="button"
+              class="btn btn-primary js-create-billing"
+              data-url="{% url 'finance:billing_create' %}">
+        <span class="glyphicon glyphicon-plus"></span>
+        New billing
+      </button>
+    </p>
+
+    <table class="table" id="billing-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Patient</th>
+          <th>Treatment</th>
+          <th>Charges</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% include 'finance/includes/partial_billing_list.html' %}
+      </tbody>
+    </table>
+
+    <!-- THE MODAL WE WILL BE USING -->
+    <div class="modal fade" id="modal-billing">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

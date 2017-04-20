@@ -1,0 +1,54 @@
+{% extends 'malaika/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Treatments{{ block.super }}{% endblock title %}
+
+{% block javascript %}
+  <script src="{% static 'operations/js/modal.js' %}"></script>
+  <script src="{% static 'operations/css/style.css' %}"></script>
+{% endblock javascript %}
+
+
+{% block content %}
+  <div class="container">
+    <h1 class="page-header">Treatments</h1>
+
+    <!-- BUTTON TO TRIGGER THE ACTION -->
+    <p>
+      <button type="button"
+              class="btn btn-primary js-create-treatment"
+              data-url="{% url 'operations:treatment_create' %}">
+        <span class="glyphicon glyphicon-plus"></span>
+        New treatment
+      </button>
+    </p>
+
+    <table class="table" id="treatment-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Patient</th>
+          <th>Doctor</th>
+          <th>Date</th>
+          <th>Symptoms</th>
+          <th>Diagnosis</th>
+          <th>Doctor's Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% include 'operations/includes/partial_treatment_list.html' %}
+      </tbody>
+    </table>
+
+    <!-- THE MODAL WE WILL BE USING -->
+    <div class="modal fade" id="modal-treatment">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

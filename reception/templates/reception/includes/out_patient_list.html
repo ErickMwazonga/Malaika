@@ -1,0 +1,35 @@
+<br/>
+<p>
+  <a href="{% url 'reception:out_patient' %}">
+    <button type="button" class="btn btn-primary js-create-patient">
+      <span class="glyphicon glyphicon-plus"></span>
+      New Out-Patient
+    </button>
+  </a>
+</p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+        <th>#</th>
+        <th>Patient</th>
+        <th>Date</th>
+        <th>Diagnosis</th>
+        <th>Doctor</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for out_patient in out_patient_list%}
+      <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ out_patient.patient }}</td>
+          <td>{{ out_patient.date }}</td>
+          <td>{{ out_patient.diagnosis }}</td>
+          <td>{{ out_patient.doctor }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="5" class="text-center bg-warning">No Out-Patient for display. We're terribly sorry.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

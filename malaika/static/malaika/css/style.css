@@ -1,13 +1,9 @@
-/*Html{
-    height:100%;
-}*/
-/*body {
-    background: url("images/next.jpg") ;
-    background-color: #fff;
-    background-repeat: no-repeat;
-    background-position: 100%;
-    background-size: cover;
-}*/
+body{
+  background-color: #eee;
+}
+.body-login{
+  background-color: #eee;
+}
 
 .navbar-brand {
     font-family: 'Satisfy';
@@ -18,4 +14,21 @@
 .loginContainer{
     margin-top: 5%;
     vertical-align: middle;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    padding: 30px;
+}
+
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.modal-content{
+  padding: 10px;
 }

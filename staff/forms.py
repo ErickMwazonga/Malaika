@@ -22,9 +22,10 @@ class DoctorForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(DoctorForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_class = 'form-horizontal'
-        self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Save'))
+        # self.helper.form_class = 'form-horizontal'
+        # self.helper.form_method = 'post'
+        # self.helper.add_input(Submit('submit', 'Save'))
+        self.helper.form_tag = False
 
         self.helper.layout = Layout(
             'first_name',

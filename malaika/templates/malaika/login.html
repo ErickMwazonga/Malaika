@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load staticfiles %}
+    {% load crispy_forms_tags %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="{% static 'malaika/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'malaika/css/bootstrap.united.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'malaika/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'malaika/css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'reception/css/style.css' %}" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <title>Login|Malaika Hospital</title>
+  </head>
+
+  <body class="body-login">
+    <div class="grandlogin">
+      <div class="center col-md-4 col-md-offset-4 containerlogin">
+        <form class="form-horizontal form-signin"  role="form" action="" method="post" enctype="multipart/form-data">
+          <fieldset>
+            <legend class="text-center">Login</legend>
+            {% csrf_token %}
+            {% crispy form %}
+            <button class="btn btn-primary" type="submit" name="button">Login</button>
+          </fieldset>
+        </form>
+      </div>
+
+    </div>
+    <!-- All the link to js scripts to come last. -->
+    <script src="{% static 'thewema/js/jquery.min.js' %}"></script>
+    <script src="{% static 'thewema/js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

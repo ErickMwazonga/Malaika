@@ -1,17 +1,21 @@
-{% extends 'malaika/base.html' %}
-
 {% load crispy_forms_tags %}
 
-{% block title %}Doctor{{ block.super }}{% endblock title %}
-
-{% block content %}
-  <div class="container">
-    <div class="col-md-6 col-md-offset-3 jumbotron">
-      <h3 class="text-center"><strong>Enter Doctor's Details</strong></h3>
-      <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% crispy form %}
-      </form>
-    </div>
+<form method="post" action="{% url 'staff:doctor_create' %}" class="js-doctor-create-form form-horizontal">
+  {% csrf_token %}
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Create a Doctor</h4>
   </div>
-{% endblock content %}
+
+  <div class="modal-body">
+      {% crispy form %}
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Create Doctor</button>
+  </div>
+
+</form>

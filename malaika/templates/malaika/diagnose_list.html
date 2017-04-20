@@ -1,0 +1,51 @@
+{% extends 'malaika/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Diagnoses{{ block.super }}{% endblock title %}
+
+{% block javascript %}
+  <script src="{% static 'malaika/js/modal.js' %}"></script>
+  <script src="{% static 'malaika/css/style.css' %}"></script>
+{% endblock javascript %}
+
+
+{% block content %}
+  <div class="container">
+    <h1 class="page-header">Diagnoses</h1>
+
+    <!-- BUTTON TO TRIGGER THE ACTION -->
+    <p>
+      <button type="button"
+              class="btn btn-primary js-create-diagnose"
+              data-url="{% url 'malaika:diagnose_create' %}">
+        <span class="glyphicon glyphicon-plus"></span>
+        New diagnose
+      </button>
+    </p>
+
+    <table class="table" id="diagnose-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Code</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% include 'malaika/includes/partial_diagnose_list.html' %}
+      </tbody>
+    </table>
+
+    <!-- THE MODAL WE WILL BE USING -->
+    <div class="modal fade" id="modal-diagnose">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

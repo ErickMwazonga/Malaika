@@ -15,7 +15,7 @@ class Patient(PersonDetails):
     next_of_kin = models.CharField(max_length=200)
 
     def __str__(self):
-        return '{}-{}'.format(self.first_name,self.last_name)
+        return '{} {}'.format(self.first_name,self.last_name)
 
 
 class In_patient(models.Model):

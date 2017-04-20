@@ -1,0 +1,21 @@
+{% load crispy_forms_tags %}
+
+<form method="post" action="{% url 'operations:treatment_update' pk=form.instance.pk %}" class="js-treatment-update-form form-horizontal">
+  {% csrf_token %}
+  <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Update Treatment</h4>
+  </div>
+
+  <div class="modal-body">
+      {% crispy form %}
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Update Treatment</button>
+  </div>
+
+</form>
