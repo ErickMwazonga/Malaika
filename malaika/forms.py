@@ -37,6 +37,12 @@ class DiagnoseForm(forms.ModelForm):
         model = Diagnose
         fields = ['name', 'code', 'description']
 
+        widgets = {
+            "description": forms.Textarea(
+                attrs={'rows':4, 'style':'resize:none;'}
+                )
+            }
+
     def __init__(self, *args, **kwargs):
         super(DiagnoseForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()

@@ -1,27 +1,42 @@
-body{
-  background-color: #eee;
+html{
+  height: 100%;
 }
+body{
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  padding-bottom: 6rem;
+  padding: 50px;
+}
+
 .body-login{
-  background-color: #eee;
+  /*background-color: #eee;*/
+  background: #fff url(../images/hos.jpeg);
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
 .navbar-brand {
     font-family: 'Satisfy';
 }
-.grandLoginContainer{
-    /*margin-top: 5%;*/
-}
-.loginContainer{
+/*.loginContainer{
     margin-top: 5%;
     vertical-align: middle;
+}*/
+.login_header{
+  color: #5c2040;
 }
 
 .footer {
-    position: relative;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
     bottom: 0;
-    padding: 30px;
+    padding: 1rem;
+    background-color: #5c2040;
+    color: white;
 }
-
 
 .form-signin {
     max-width: 330px;
@@ -31,4 +46,40 @@ body{
 
 .modal-content{
   padding: 10px;
+  background-color: #eee;
+}
+
+
+.hospital_name{
+  font-size: 5em;
+	/*color: transparent;*/
+	/*background-color: #666666;*/
+	/*-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+	text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;*/
+}
+.hospital_slogan{
+  font-size: 2em;
+}
+.main-jumbo{
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+}
+
+.btn-primary {
+  background-color: #5c2040 !important;
+  border-color:inherit;
+}
+
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }

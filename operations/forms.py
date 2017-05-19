@@ -18,11 +18,14 @@ class TreatmentForm(forms.ModelForm):
 
         widgets = {
             'date': forms.SelectDateWidget(years=[str(val) for val in range(1998, 2017)]),
+            'symptoms': forms.Textarea(attrs={'rows':4, 'style':'resize:none;'}),
+            'doctors_comments': forms.Textarea(attrs={'rows':4, 'style':'resize:none;'}),
             }
 
     def __init__(self, *args, **kwargs):
         super(TreatmentForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
+        # self.fields['symptoms'].widget.attrs['style'] = 'resize:none' //setting textarea resize to none
         # self.helper.form_class = 'form-horizontal'
         # self.helper.form_method = 'post'
         # self.helper.add_input(Submit('submit', 'Save'))
