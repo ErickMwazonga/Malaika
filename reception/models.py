@@ -3,9 +3,8 @@ from __future__ import unicode_literals
 
 # project imports
 from django.db import models
-from malaika.models import PersonDetails, Room
+from hospital.models import PersonDetails, Room, Diagnose
 from staff.models import Doctor
-from malaika.models import Diagnose
 
 from django.utils import timezone
 

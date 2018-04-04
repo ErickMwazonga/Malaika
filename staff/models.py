@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from malaika.models import PersonDetails
+from hospital.models import PersonDetails
 
 # Create your models here.
 class Doctor(PersonDetails):

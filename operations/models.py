@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 from reception.models import Patient
 from staff.models import Doctor
-from malaika.models import Diagnose
+from hospital.models import Diagnose
 
 from django.utils import timezone
 

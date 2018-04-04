@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="{% static 'hospital/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'hospital/css/bootstrap.united.min.css' %}" type="text/css">
+
+    <link rel="stylesheet" href="{% static 'hospital/fonts/glyphicons-halflings-regular.tff' %}">
+    <link rel="stylesheet" href="{% static 'hospital/fonts/glyphicons-halflings-regular.woff' %}">
+    <link rel="stylesheet" href="{% static 'hospital/fontsglyphicons-halflings-regular.woff2' %}">
+
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="{% static 'hospital/css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'reception/css/style.css' %}" type="text/css">
+    <title>{% block title %} |Malaika Hospital {% endblock title %}</title>
+  </head>
+
+  <body>
+    <nav class="navbar-inverse navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'hospital:index' %}">Malaika Hospital</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{% url 'reception:patients' %}">Reception</a></li>
+            <li><a href="{% url 'operations:treatments' %}">Treatment</a></li>
+            <li><a href="{% url 'finance:billings' %}">Finance</a></li>
+            <li><a href="{% url 'hospital:diagnoses' %}">Diagnoses</a></li>
+            <li><a href="{% url 'hospital:rooms' %}">Rooms</a></li>
+            <li><a href="{% url 'staff:doctors' %}">Doctors</a></li>
+            <li class="nav navbar-nav">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'reception:patient' %}">Patient</a></li>
+                <li><a href="{% url 'reception:in_patient' %}">In_patient</a></li>
+                <li><a href="{% url 'reception:out_patient' %}">Out-patient</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                  <li class="nav navbar-nav">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      <i class="glyphicon glyphicon-user" aria-hidden="true"></i><span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                    </ul>
+                  </li>
+                {% else %}
+                  <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+      <!-- </div>
+    </div> -->
+
+    {% block content %}
+    {% endblock content %}
+
+    <footer class="text-center footer">
+        <p class="text-center">Copyright &copy;2017 hospital Hospital All Rights Reserved<br/>By Lolany Int.</p>
+    </footer>
+
+    <!-- All the link to js scripts to come last. -->
+   <script src="{% static 'hospital/js/jquery.min.js' %}"></script>
+   <script src="{% static 'hospital/js/bootstrap.min.js' %}"></script>
+   <!-- other javascript block -->
+    <!-- <script src="{% static 'hospital/js/jquery.min.js' %}"></script>
+    <script src="{% static 'hospital/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'hospital/js/jquery-3.2.1.js' %}"></script> -->
+
+    {% block javascript %}
+    {% endblock %}
+
+  </body>
+</html>
