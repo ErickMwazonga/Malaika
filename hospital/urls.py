@@ -17,11 +17,4 @@ urlpatterns = [
     url(r'^diagnose/(?P<pk>\d+)/update/$', views.diagnose_update, name='diagnose_update'),
     url(r'^diagnose/(?P<pk>\d+)/delete/$', views.diagnose_delete, name='diagnose_delete'),
     url(r'^diagnoses$', DiagnoseListView.as_view(), name='diagnoses'),
-    url(r'^login$', auth_views.login, {
-            'template_name': 'hospital/login.html',
-            'authentication_form': AuthenticationForm
-        },
-        name='login'
-    ),
-    url(r'^logout/$', auth_views.logout_then_login, {'login_url':'hospital:login'}, name='logout'),
 ]

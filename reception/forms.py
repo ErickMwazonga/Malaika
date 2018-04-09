@@ -11,11 +11,13 @@ class PatientForm(forms.ModelForm):
 
     class Meta:
         model = Patient
-        fields = ['first_name', 'last_name', 'gender', 'dob', 'age', 'country', 'city', 'address', 'contact_no', 'next_of_kin']
+        fields = ['first_name', 'last_name', 'gender', 'dob', 'age',
+                'country', 'city', 'address', 'next_of_kin_contact_no',
+                'next_of_kin']
 
         labels = {
             'dob': 'Date of Birth',
-            'contact_no': 'Contact Number'
+            'next_of_kin_contact_no': 'Contact Number'
         }
         widgets = {
             'dob': forms.SelectDateWidget(years=[str(val) for val in range(1998, 2005)]),

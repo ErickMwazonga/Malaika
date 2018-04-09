@@ -10,7 +10,7 @@ class DoctorForm(forms.ModelForm):
 
     class Meta:
         model = Doctor
-        fields = ['first_name', 'last_name', 'gender', 'dob', 'age', 'country', 'city', 'address', 'specialization']
+        fields = ['first_name', 'last_name', 'gender', 'dob', 'age', 'country', 'city', 'address']
 
         labels = {
             'dob': 'Date of Birth'
@@ -41,7 +41,6 @@ class DoctorForm(forms.ModelForm):
             'country',
             'city',
             'address',
-            'specialization'
         )
 
     def clean(self):
