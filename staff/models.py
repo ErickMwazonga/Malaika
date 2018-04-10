@@ -9,40 +9,63 @@ from hospital.models import Person
 
 
 # Create your models here.
-class DoctorSpeciality(TimeStampedModel):
+class UserType(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'User Type'
+        verbose_name_plural = 'User Types'
+
+
+# def get_doctors():
+#     doctor =  UserType.objects.get_or_create(name='Doctors', description='Doctors')
+#     return doctor.id
+#
+# def get_nurses():
+#     nurse = UserType.objects.get_or_create(name='Nurses', description='Nurses')
+#     return nurse.id
+
+
+class Speciality(TimeStampedModel):
     specialty = models.CharField(max_length=100)
 
     def __str__(self):
         return self.specialty
 
     class Meta:
-        verbose_name = 'Doctor specialty'
-        verbose_name_plural = 'Doctors specialties'
+        verbose_name = 'Specialty'
+        verbose_name_plural = 'Specialties'
 
 
 class Doctor(Person):
     person = models.OneToOneField(User, related_name='doctors')
-    avatar = models.ImageField(upload_to='avatars', null=True, blank=True)
-    specialty = models.ManyToManyField(DoctorSpeciality)
+    avatar = models.ImageField(upload_to='avatars/doctors', null=True, blank=True)
+    specialty = models.ManyToManyField(Speciality)
+    user_type = models.ForeignKey(UserType, related_name='doctors')
 
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
 
 
-class NurseSpeciality(TimeStampedModel):
-    specialty = models.CharField(max_length=30, primary_key=True)
-
-    def __str__(self):
-        return self.specialty
-
-    class Meta:
-        verbose_name = 'Nurse specialty'
-        verbose_name_plural = 'Nurse specialties'
-
-
-class Nurse(TimeStampedModel):
+class Nurse(Person):
     person = models.OneToOneField(User, related_name='nurses')
-    specialty = models.ManyToManyField(NurseSpeciality)
+    avatar = models.ImageField(upload_to='avatars/nurses', null=True, blank=True)
+    specialty = models.ManyToManyField(Speciality)
+    user_type = models.ForeignKey(UserType, related_name='nurses')
 
     def __str__(self):
-        return self.specialty
+        return '{} {}'.format(self.first_name, self.last_name)
+
+
+class OtherStaff(Person):
+    person = models.OneToOneField(User)
+    avatar = models.ImageField(upload_to='avatars/otherstaff', null=True, blank=True)
+    specialty = models.ManyToManyField(Speciality)
+    user_type = models.ForeignKey(UserType)
+
+    def __str__(self):
+        return '{} {}'.format(self.first_name, self.last_name)
